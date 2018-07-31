@@ -1,14 +1,26 @@
 html {
-  font-size: 18px;
+  box-sizing: border-box;
+}
+*,*::before, *::after {
+  box-sizing: inherit;
+
 }
 
+/* Universal Styles to the page: */
+html {
+  font-size: 18px;
+}
 body {
   font-family: Helvetica, sans-serif;
   background-color: white;
 }
+h1,h4 {
+  font-weight: bold;
+}
+
 .container {
+  max-width: 960px;
   margin: 0 auto;
-  width: 960px;
 }
 
 
@@ -16,69 +28,75 @@ body {
 header {
   background-color: black;
   color: white;
-  width: 100%;
-}
-
-header span {
-  font-size: 1rem;
-  padding: 0.66rem 0;
-  text-transform: uppercase;
 }
 
 header .container {
   display: flex;
   align-items: center;
-  padding: 12px 0.5em;
-}
+  padding: 0.66rem 0;
+  text-transform: uppercase;
+  font-size: 1rem;
 
+}
 header img {
-  height: 1.5em;
-  padding-right: 1rem;
-  padding-left: 0.5rem;
+  height: 1.5rem;
+  padding: 0 1rem 0 0.5rem;
 }
 
 /* Main Banner Section */
+
 .main-banner {
   height: 25rem;
-  background-image: url("images/moto.jpeg");
-  background-repeat: no-repeat;
-  background-position: 50% 35%;
+  background: url("images/moto.jpeg");
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .headline {
-  background-color: black;
-  color: white;
-  width: 20rem;
-  padding: 2em 3em;
   position: relative;
-  top: 9em;
+  top: 9rem;
+  color: white;
+  background-color: black;
+  width: 20rem;
+  padding: 2rem 3rem;
   text-transform: uppercase;
-}
-
-.headline h4 {
-  font-size: 1rem;
-  font-weight: bold;
 }
 
 .headline h1 {
   font-size: 2rem;
-  font-weight: bold;
-  padding-top: 0.25rem;
-  line-height: 1.2em;
+  margin-top: 0.25rem;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 470px) {
+  .main-banner {
+    height: 15rem;
+  }
+  .headline {
+    width: 100%;
+    top: 10rem;
+    padding: 1rem 2rem;
+
+  }
+   h4 {
+    font-size: 0.77rem;
+  }
+  h1 {
+    font-size: 1rem;
+  }
 }
 
 /* Nav Section */
 nav {
   background-color: firebrick;
+  color: white;
 }
 nav ul {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-}
-nav li {
-  color: white;
-  display: inline-block;
   padding: 0.75rem 0;
 }
 
@@ -86,130 +104,116 @@ nav li {
   display: none;
 }
 
-/*Product section */
-.main-products {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-}
-.item {
-  width: 30%;
-
-}
-
-.product-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
-  height: 9rem;
-  border: 4px solid black;
-}
-.product-image img {
-  max-width: 8em;
-}
-
-.description {
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 0.5rem 0;
-}
-
-/* Infos Section */
-.infos {
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.info {
-  width: 35%;
-}
-
-.title {
-  background-color: black;
-  color: white;
-  padding: 1rem 0 1rem 2rem;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-/* Footer Section */
-footer {
-  height: 7rem;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-}
-
-/* Media queries */
 @media only screen and (max-width: 1024px) {
-  .headline {
-    font-size: 1rem;
-  }
   nav ul {
     display: none;
   }
   .mobile-nav {
     display: block;
     text-align: center;
+
   }
-  .glasses {
-    display: none;
+}
+@media only screen and (max-width: 470px) {
+.mobile-nav {
+  margin-top: 2.7rem;
+}
+
+
+
+/* Product Section */
+.products,
+.business-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+
+}
+
+.product {
+  width: 30%;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid black;
+  padding: 2rem 0;
+  height: 9rem;
   }
-  .item {
-    width: 47%;
+
+  .product-image img {
+    max-width: 8rem;
   }
+
+  .description {
+    padding: 0.5rem 0;
+    color: white;
+    background-color: black;
+    text-align: center;
+    display: block;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .glasses {
+      display: none;
+    }
+    .product {
+      width: 47%;
+    }
+  }
+
+  @media only screen and (max-width: 470px) {
+
+    .product {
+      width: 90%;
+      margin: 1rem auto;
+    }
+    .watch {
+      display: none;
+    }
+  }
+
+  /* Info Section */
+.info {
+  width: 35%;
+}
+.title {
+  padding: 1rem 2rem;
+  background-color: black;
+  display: block;
+  color: white;
+}
+@media only screen and (max-width: 1024px) {
   .info {
     width: 35%;
   }
 }
 
-@media only screen and (max-width: 360px) {
-
-.container {
-  max-width: 470px;
-}
-  .main-banner {
-    height: 15rem;
-  }
-  .headline {
-    padding: 1em 2em;
-    width: 100%;
-  }
-  .headline h4 {
-    padding-top: 1rem;
-    font-size: 0.77rem;
-    font-weight: bold;
-  }
-  .headline h1 {
-    margin-top: 0.25rem;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  .item.watch {
-    display: none;
-  }
-  .item.glasses {
-    display: none;
-  }
-
-  .item.pen {
-    width: 90%;
-
+@media only screen and (max-width: 470px) {
+  .products,
+  .business-info {
+    flex-wrap: wrap;
+    margin: 0 auto;
   }
   .info {
-  width: 90%;
+    width: 90%;
+    margin: 0.5rem auto;
   }
-  .title {
-    margin-top: 0.5rem;
-  }
+
+}
+
+/* Footer Section */
+footer {
+  background-color: black;
+  margin-top: 3rem;
+  padding: 5rem 0;
+  text-align: left;
+  color: white;
+}
+
+@media only screen and (max-width: 470px) {
   footer {
     text-align: center;
   }
